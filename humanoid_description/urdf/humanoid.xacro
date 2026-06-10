@@ -455,8 +455,8 @@
         <parent link="base_link"/>
         <child link="pelvic-to-chest_link"/>
         <!-- prismatic adds: Prevents math crashes by setting motion bounds (in meters)  -->
-        <axis xyz="0 1 0"/>
-        <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/>
+        <!-- <axis xyz="0 1 0"/>
+        <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/> -->
     </joint>
 
     <link name="pelvic-to-chest_link">
@@ -497,13 +497,13 @@
         <visual>
             <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
             <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -513,7 +513,7 @@
         <parent link="pelvic-to-chest_link"/>
         <child link="pelvic-to-rightleg_link"/>
         <!-- prismatic adds: Prevents math crashes by setting motion bounds (in meters)  -->
-        <!-- <axis xyz="1 0 0"/>
+        <!-- <axis xyz="0 1 0"/>
         <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/> -->
     </joint>
 
@@ -524,18 +524,37 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.197943 -0.011478 -0.38665" rpy="1.570796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.197943 -0.011478 -0.38665" rpy="1.570796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
+    <!-- <link name="pelvic-to-rightleg_link"> exchanged-not straight
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="15.0"/>
+            <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/right-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/right-torso_to_femur.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link> -->
 
     <joint name="torso-to-leftleg_joint" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -553,13 +572,13 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="0.500943 -0.066478 -0.40265" rpy="1.570796 0.0 3.14159"/>
             <geometry>
                 <mesh filename="package://humanoid_description/meshes/Waist_to_knee.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="0.500943 -0.066478 -0.40265" rpy="1.570796 0.0 3.14159"/>
             <geometry>
                 <mesh filename="package://humanoid_description/meshes/Waist_to_knee.STL" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -582,13 +601,13 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.268943 -0.066478 -0.40265" rpy="1.570796 0.0 3.14159"/>
             <geometry>
                 <mesh filename="package://humanoid_description/meshes/Waist_to_knee.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.268943 -0.066478 -0.40265" rpy="1.570796 0.0 3.14159"/>
             <geometry>
                 <mesh filename="package://humanoid_description/meshes/Waist_to_knee.STL" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -601,7 +620,7 @@
         <parent link="torso-to-leftleg_link"/>
         <child link="leftknee-to-ankle_link"/>
         <!-- prismatic adds: Prevents math crashes by setting motion bounds (in meters)  -->
-        <!-- <axis xyz="1 0 0"/>
+        <!-- <axis xyz="0 1 0"/>
         <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/> -->
     </joint>
 
@@ -612,15 +631,15 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="0.195943 0.022478 -0.38665" rpy="1.440796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Knee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/leftKnee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="0.195943 0.022478 -0.38665" rpy="1.440796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Knee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/leftKnee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -641,15 +660,15 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.195943 0.015522 -0.38665" rpy="1.440796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Knee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/rightKnee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 3.14159"/>
+            <origin xyz="0.195943 0.015522 -0.38665" rpy="1.440796 0.0 3.14159"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Knee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/rightKnee_to_Ankle.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -659,7 +678,7 @@
         <parent link="leftknee-to-ankle_link"/>
         <child link="leftankle-to-feet_link"/>
         <!-- prismatic adds: Prevents math crashes by setting motion bounds (in meters)  -->
-        <!-- <axis xyz="1 0 0"/>
+        <!-- <axis xyz="0 1 0"/>
         <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/> -->
     </joint>
 
@@ -670,15 +689,15 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="-0.343943 0.081978 -0.38285" rpy="1.532796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Foot.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left_foot.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="-0.343943 0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="-0.343943 0.081978 -0.38285" rpy="1.532796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Foot.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/left_foot.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -688,7 +707,7 @@
         <parent link="rightknee-to-ankle_link"/>
         <child link="rightankle-to-feet_link"/>
         <!-- prismatic adds: Prevents math crashes by setting motion bounds (in meters)  -->
-        <!-- <axis xyz="1 0 0"/>
+        <!-- <axis xyz="0 1 0"/>
         <limit lower="-1.0" upper="1.0" effort="10.0" velocity="1.0"/> -->
     </joint>
 
@@ -699,15 +718,15 @@
             <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
         </inertial>
         <visual>
-            <origin xyz="-0.57343 0.071478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="-0.343943 0.081978 -0.38285" rpy="1.532796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Foot.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/right_foot.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin xyz="-0.343943 -0.125478 -0.38665" rpy="1.570796 0.0 0.0"/>
+            <origin xyz="-0.343943 0.081978 -0.38285" rpy="1.532796 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://humanoid_description/meshes/Foot.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://humanoid_description/meshes/right_foot.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
