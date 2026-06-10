@@ -1,7 +1,7 @@
 ## Humanoid Robot Initial Visualisation
 
 This is just to see if our robot design is accurate and will actually stand, and also to implement PID.
-
+![humanoid1](https://github.com/Iqmaa/humanoid_visualisation/blob/main/Media/humanoid1.png?raw=true)
 Training on how to walk and perform other tasks will be done in mujoco.
 
 ### Steps to Launch
