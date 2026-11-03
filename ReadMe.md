@@ -14,7 +14,7 @@ Training on how to walk and perform other tasks will be done in mujoco.
 
 1. clone the repo
 ```
-git clone (insert link)
+git clone https://github.com/Iqmaa/humanoid_visualisation.git
 ```
 go into the folder
 ```
