@@ -1,0 +1,50 @@
+#include <Wire.h>
+#include <Adafruit_PWMServoDriver.h>
+
+// Initialize the PCA9685 PWM board at default I2C address 0x40
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);
+
+// Define PCA9685 board channels
+const uint8_t SERVO1_CHAN = 4; // Channel 4 on PCA9685
+const uint8_t SERVO2_CHAN = 5; // Channel 5 on PCA9685
+
+// Pulse length boundaries (adjust if your servos strain at 0 or 180 degrees)
+#define SERVOMIN  150 // Minimum pulse length count (approx. 0 degrees)
+#define SERVOMAX  600 // Maximum pulse length count (approx. 180 degrees)
+#define SERVO_FREQ 50 // Analog servos run at ~50 Hz
+
+// Helper function to convert 0-180 degrees to PCA9685 PWM tick values
+int angleToPulse(int angle) {
+  return map(angle, 0, 180, SERVOMIN, SERVOMAX);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  // Initialize I2C communication (ESP32 defaults: GPIO 21 for SDA, GPIO 22 for SCL)
+  pwm.begin();
+  pwm.setOscillatorFrequency(27000000);
+  pwm.setPWMFreq(SERVO_FREQ);
+
+  delay(500); // Give the PCA9685 time to power up
+
+  // Start at 0 degrees for safety
+  pwm.setPWM(SERVO1_CHAN, 0, angleToPulse(0));
+  pwm.setPWM(SERVO2_CHAN, 0, angleToPulse(0));
+  delay(1000); // Give them a second to reach starting position
+}
+
+void loop() {
+  // --- Step 1: Rotate Servo 1 to 180 degrees ---
+  pwm.setPWM(SERVO1_CHAN, 0, angleToPulse(180));
+  delay(1500); // Pause to allow Servo 1 to finish moving
+
+  // --- Step 2: Rotate Servo 2 to 90 degrees ---
+  pwm.setPWM(SERVO2_CHAN, 0, angleToPulse(90));
+  delay(1500); // Pause to allow Servo 2 to finish moving
+
+  // --- Step 3: Reset both back to 0 degrees ---
+  pwm.setPWM(SERVO1_CHAN, 0, angleToPulse(0));
+  pwm.setPWM(SERVO2_CHAN, 0, angleToPulse(0));
+  delay(2000); // Wait 2 seconds before repeating the cycle
+}
